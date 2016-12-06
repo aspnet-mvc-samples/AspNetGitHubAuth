@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using AspNetGitHubAuth.Models;
+using Owin.Security.Providers.GitHub;
 
 namespace AspNetGitHubAuth
 {
@@ -63,6 +64,13 @@ namespace AspNetGitHubAuth
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+            GitHubAuthenticationOptions options = new GitHubAuthenticationOptions
+            {
+                ClientId = "372aabc7aa8d624477ae",
+                ClientSecret= "28491143f6502c3a34fce0b54ecb98fe24ab0256"
+            };
+            options.Scope.Clear();
+            app.UseGitHubAuthentication(options);
         }
     }
 }
